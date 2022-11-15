@@ -18,8 +18,9 @@ class FieldsController extends Controller
         if (is_null($the_field)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            $the_field = Field::with('fieldTypes')->get()->find($id);
-            error_log('canchas '.$the_field);
+            #$the_field = Field::with('fieldTypes')->get()->find($id);
+            $the_field->fieldTypes;
+            error_log('FIELDS '.$the_field);
             return response()->json($the_field,200);
         }
     }

@@ -12,6 +12,7 @@ use App\Http\Controllers\FieldTypeController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\PlayerTeamsController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\sportTypeController;
 use App\Http\Controllers\TeamsController;
 
@@ -128,4 +129,19 @@ Route::controller(sportTypeController::class)->group(function () {
     Route::post('sportType', 'store'); //Para guardar
     Route::put('sportType/{id}', 'update'); //Para actualizar
     Route::delete('sportType/{id}', 'destroy'); //Para eliminar un registro
+});
+
+
+
+Route::controller(UsersController::class)->group(function() {
+    Route::get('users','index');
+    Route::get('users/{id}','show');
+    Route::post('users','store');
+    Route::put('users/{id}','update');
+    Route::delete('users/{id}','destroy');
+});
+
+Route::controller(SecurityController::class)->group(function(){
+    route::post('login','login');
+    route::post('logout','logout');
 });
