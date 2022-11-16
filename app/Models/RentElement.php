@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sportType extends Model
+class RentElement extends Model
 {
-    use HasFactory;
-    protected $table = 'sportTypes';
+    protected $table = 'rentElements';
+
     protected $fillable = [
         'nombre',
+        'cantidad',
+        'tipo',
         'descripcion',
-        'cancha_id'
+        'marca',
+        'reservation_id'
     ];
+    use HasFactory;
 }

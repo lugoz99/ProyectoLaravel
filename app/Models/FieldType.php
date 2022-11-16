@@ -11,6 +11,9 @@ class FieldType extends Model
     protected $table = 'FieldType';
     protected $fillable = [
         'nombre',
+        'descripcion',
+        'forma',
+        'superficie'
     ];
 
     public function fields(){

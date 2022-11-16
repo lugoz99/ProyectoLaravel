@@ -15,7 +15,8 @@ class Field extends Model
         'descripcion',
         'imagen',
         'ubicacion',
-        'tipoCancha_id'
+        'tipoCancha_id',
+        'ubicacion_id'
     ];
 
     public function teams()

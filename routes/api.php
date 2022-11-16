@@ -9,8 +9,11 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\permissionsRolsController;
 use App\Http\Controllers\FieldsController;
 use App\Http\Controllers\FieldTypeController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\PlayerTeamsController;
+use App\Http\Controllers\RentElement;
+use App\Http\Controllers\RentElementsController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SecurityController;
 use App\Http\Controllers\sportTypeController;
@@ -42,21 +45,21 @@ Route::controller(PermissionsController::class)->group(function () {
 
 
 Route::controller(RolsController::class)->group(function () {
-    Route::get('Rols', 'index'); //Para obtener todos
-    Route::get('Rols/{id}', 'show'); //Para consultar especifico
-    Route::get('Rols/reports/count/{id}', 'count');
-    Route::get('Rols/reports/count/quantities-by-rol', 'quantitiesByRol');
-    Route::post('Rols', 'store'); //Para guardar
-    Route::put('Rols/{id}', 'update'); //Para actualizar
-    Route::delete('Rols/{id}', 'destroy'); //Para eliminar un registro
+    Route::get('rols', 'index'); //Para obtener todos
+    Route::get('rols/{id}', 'show'); //Para consultar especifico
+    Route::get('rols/reports/count/{id}', 'count');
+    Route::get('rols/reports/count/quantities-by-rol', 'quantitiesByRol');
+    Route::post('rols', 'store'); //Para guardar
+    Route::put('rols/{id}', 'update'); //Para actualizar
+    Route::delete('rols/{id}', 'destroy'); //Para eliminar un registro
 });
 
 Route::controller(ProfilesController::class)->group(function () {
-    Route::get('Profiles', 'index'); //Para obtener todos
-    Route::get('Profiles/{id}', 'show'); //Para consultar especifico
-    Route::post('Profiles', 'store'); //Para guardar
-    Route::put('Profiles/{id}', 'update'); //Para actualizar
-    Route::delete('Profiles/{id}', 'destroy'); //Para eliminar un registro
+    Route::get('profiles', 'index'); //Para obtener todos
+    Route::get('profiles/{id}', 'show'); //Para consultar especifico
+    Route::post('profiles', 'store'); //Para guardar
+    Route::put('profiles/{id}', 'update'); //Para actualizar
+    Route::delete('profiles/{id}', 'destroy'); //Para eliminar un registro
 });
 
 Route::controller(UsersController::class)->group(function () {
@@ -131,6 +134,21 @@ Route::controller(sportTypeController::class)->group(function () {
     Route::delete('sportType/{id}', 'destroy'); //Para eliminar un registro
 });
 
+Route::controller(LocationController::class)->group(function () {
+    Route::get('location', 'index'); //Para obtener todos
+    Route::get('location/{id}', 'show'); //Para consultar especifico
+    Route::post('location', 'store'); //Para guardar
+    Route::put('location/{id}', 'update'); //Para actualizar
+    Route::delete('location/{id}', 'destroy'); //Para eliminar un registro
+});
+
+Route::controller(RentElementsController::class)->group(function () {
+    Route::get('rentElement','index'); //Para obtener todos
+    Route::get('rentElement/{id}', 'show'); //Para consultar especifico
+    Route::post('rentElement','store'); //Para guardar
+    Route::put('rentElement/{id}', 'update'); //Para actualizar
+    Route::delete('rentElement/{id}', 'destroy'); //Para eliminar un registro
+});
 
 
 Route::controller(UsersController::class)->group(function() {
