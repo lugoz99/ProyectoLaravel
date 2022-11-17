@@ -18,7 +18,8 @@ class RentElementsController extends Controller
         if (is_null($the_reservation)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            return response()->json($the_reservation::find($id), 200);
+            $the_rs = ModelsRentElement::with('reservas')->get()->find($id);
+            return response()->json($the_rs, 200);
         }
     }
     public function store(Request $request)

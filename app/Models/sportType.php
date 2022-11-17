@@ -14,4 +14,9 @@ class sportType extends Model
         'descripcion',
         'cancha_id'
     ];
+
+    public function canchas(){
+        return $this->belongsTo(Field::class,'cancha_id');
+
+    }
 }

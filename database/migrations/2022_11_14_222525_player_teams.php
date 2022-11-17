@@ -16,18 +16,19 @@ class PlayerTeams extends Migration
         Schema::create('PlayerTeams', function (Blueprint $table) {
             $table->id();
             //Agregar las columnas que contendrán los datos foráneos
-            $table->bigInteger('player_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('team_id')->unsigned();
+            $table->string('numeroCamisa');
             //Hacer efectivo la relación
-            $table->foreign('player_id')->references('id')
-                ->on('players')
+            $table->foreign('user_id')->references('id')
+                ->on('users')
                 ->onDelete('cascade');
 
             $table->foreign('team_id')->references('id')
                 ->on('teams')
                 ->onDelete('cascade');
             $table->timestamps();
-            $table->unique(['player_id', 'team_id']);
+            $table->unique(['user_id', 'team_id']);
         });
     }
 

@@ -11,7 +11,7 @@ class Player extends Model
     protected $fillable = [
         'nombre',
         'cedula',
-        'celular',
+        'telefono',
         'correo'
     ];
 

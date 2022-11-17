@@ -18,7 +18,8 @@ class ReservationController extends Controller
         if (is_null($the_reservation)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            return response()->json($the_reservation::find($id), 200);
+            $the_reservation= Reservation::with('elementos')->get()->find($id);
+            return response()->json($the_reservation,200);
         }
     }
     public function store(Request $request)

@@ -18,7 +18,10 @@ class sportTypeController extends Controller
         if (is_null($the_sport_type)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            return response()->json($the_sport_type::find($id), 200);
+            $the_sport_type->canchas;
+            error_log('sport_type' . $the_sport_type);
+            $the_sport_type = sportType::with('canchas')->get()->find($id);
+            return response()->json($the_sport_type, 200);
         }
     }
     public function store(Request $request)

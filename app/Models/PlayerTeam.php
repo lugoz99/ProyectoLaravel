@@ -10,8 +10,11 @@ class PlayerTeam extends Model
     use HasFactory;
     protected $table = 'PlayerTeams';
     protected $fillable = [
-        'deportista_id',
-        'equipo_id',
+        'user_id',
+        'team_id',
         'numeroCamisa'
     ];
+
+
+
 }

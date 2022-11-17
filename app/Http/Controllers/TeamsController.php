@@ -18,9 +18,8 @@ class TeamsController extends Controller
         if (is_null($the_team)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            $the_team->users;
-            //$the_team->permissions;
-            return response()->json($the_team, 200);
+            $the_teams = Team::with('field')->get()->find($id);
+            return response()->json($the_teams, 200);
         }
     }
     public function store(Request $request)

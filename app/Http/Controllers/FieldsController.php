@@ -9,6 +9,7 @@ class FieldsController extends Controller
 {
     public function index()
     {
+        //$the_field = Field::with(['fieldTypes','location'])->get();
         return response()->json(Field::all(), 200);
     }
 
@@ -18,8 +19,11 @@ class FieldsController extends Controller
         if (is_null($the_field)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            #$the_field = Field::with('fieldTypes')->get()->find($id);
+            //$the_field = Field::with(['fieldTypes','location'])->get()->find($id);
+            $the_field->typeSport;
+            $the_field->location;
             $the_field->fieldTypes;
+            $the_field->teams;
             error_log('FIELDS '.$the_field);
             return response()->json($the_field,200);
         }

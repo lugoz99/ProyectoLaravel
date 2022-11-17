@@ -17,5 +17,10 @@ class RentElement extends Model
         'marca',
         'reservation_id'
     ];
+
+
+    public function reservas(){
+        return $this->belongsTo(Reservation::class,'reservation_id');
+    }
     use HasFactory;
 }
