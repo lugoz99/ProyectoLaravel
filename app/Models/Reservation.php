@@ -13,7 +13,9 @@ class Reservation extends Model
         'fechaReserva',
         'team_id',
         'field_id',
-        'estado'
+        'estado',
+        'hora_inicio',
+        'hora_fin'
     ];
 
     public function elementos(){

@@ -30,10 +30,7 @@ class User extends Authenticatable
     }
 
     //Relación 1 a n
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -56,7 +53,11 @@ class User extends Authenticatable
 
 
     public function teams(){
-        return $this->belongsToMany(Team::class);
+        return $this->belongsToMany(Team::class,PlayerTeam::class);
     }
+
+    public function role(){
+        return $this->belongsTo(Rol::class,'rol_id');
+   }
 
 }

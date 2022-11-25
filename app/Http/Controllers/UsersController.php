@@ -20,8 +20,8 @@ class UsersController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         } else {
             //$the_user->profile;
-            $the_user->rol;
-            return response()->json($the_user::find($id), 200);
+            $the_user = User::with(['role','teams'])->get()->find($id);
+            return response()->json($the_user, 200);
         }
     }
     public function store(Request $request)

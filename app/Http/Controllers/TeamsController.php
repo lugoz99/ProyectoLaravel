@@ -18,7 +18,7 @@ class TeamsController extends Controller
         if (is_null($the_team)) {
             return response()->json(['message' => 'Not found'], 404);
         } else {
-            $the_teams = Team::with('field')->get()->find($id);
+            $the_teams = Team::with(['users','fields'])->get()->find($id);
             return response()->json($the_teams, 200);
         }
     }

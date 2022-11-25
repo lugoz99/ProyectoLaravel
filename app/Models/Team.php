@@ -12,13 +12,13 @@ class Team extends Model
         'nombre'
     ];
 
+    public function fields(){
+        return $this->belongsToMany(Field::class,Reservation::class);
+    }
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,PlayerTeam::class);
     }
 
-    public function field()
-    {
-        return $this->belongsToMany(Field::class,'field_id','reservation');
-    }
+
 }
