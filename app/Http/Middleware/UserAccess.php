@@ -19,8 +19,8 @@ class UserAccess
         if(!auth('api')->user()){
             return response()->json(["msg"=>'you do not have access to this page'],404);
         }else{
-            $user = auth('api')->user();
-            error_log('User acces >'.$user);
+            $user = auth('api')->user(); // puede servir para metricas es decir conocer quienes acceden a los edpoints frecuentemte
+            // error_log('User acces >'.$user);
             return $next($request);
 
         }

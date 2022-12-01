@@ -12,6 +12,7 @@ use App\Http\Controllers\FieldTypeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\PlayersController;
 use App\Http\Controllers\PlayerTeamsController;
+use App\Http\Controllers\ProfilesContoller;
 use App\Http\Controllers\RentElement;
 use App\Http\Controllers\RentElementsController;
 use App\Http\Controllers\ReservationController;
@@ -35,6 +36,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
+
+Route::controller(PermissionsRolsController::class)->group(function () {
+    Route::get('permissionsRol', 'index'); //Para obtener todos
+    Route::get('permissionsRol/{id}', 'show'); //Para consultar especifico
+    Route::post('permissionsRol', 'store'); //Para guardar
+    Route::put('permissionsRol/{id}', 'update'); //Para actualizar
+    Route::delete('permissionsRol/{id}', 'destroy'); //Para eliminar un registro
+});
+
 Route::controller(PermissionsController::class)->group(function () {
     Route::get('permissions', 'index'); //Para obtener todos
     Route::get('permissions/{id}', 'show'); //Para consultar especifico
@@ -45,16 +55,16 @@ Route::controller(PermissionsController::class)->group(function () {
 
 
 Route::controller(RolsController::class)->group(function () {
-    Route::get('rols', 'index'); //Para obtener todos
+    Route::get('rols', 'index')->middleware(['user-access']); //Para obtener todos
     Route::get('rols/{id}', 'show'); //Para consultar especifico
     Route::get('rols/reports/count/{id}', 'count');
     Route::get('rols/reports/count/quantities-by-rol', 'quantitiesByRol');
     Route::post('rols', 'store'); //Para guardar
     Route::put('rols/{id}', 'update'); //Para actualizar
-    Route::delete('rols/{id}', 'destroy'); //Para eliminar un registro
+    Route::delete('rols/{id}', 'destroy')->whereNumber('id'); //Para eliminar un registro
 });
 
-Route::controller(ProfilesController::class)->group(function () {
+Route::controller(ProfilesContoller::class)->group(function () {
     Route::get('profiles', 'index'); //Para obtener todos
     Route::get('profiles/{id}', 'show'); //Para consultar especifico
     Route::post('profiles', 'store'); //Para guardar
@@ -152,7 +162,7 @@ Route::controller(RentElementsController::class)->group(function () {
 
 
 Route::controller(UsersController::class)->group(function() {
-    Route::get('users','index');
+    Route::get('users','index')->middleware(['user-access','permission-access']);
     Route::get('users/{id}','show');
     Route::post('users','store');
     Route::put('users/{id}','update');

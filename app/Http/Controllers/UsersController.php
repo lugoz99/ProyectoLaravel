@@ -35,7 +35,7 @@ class UsersController extends Controller
             ]);
             $data['password'] = bcrypt($request->password); // Proceso de encriptacion de la contraseña
             $user = User::create($data);
-            error_log('user ' .$user);
+            //error_log('user ' .$user);
             $token = $user->createToken('API Token')->accessToken;
              // Cada que se crea un usuario se le va a generar un Token
             error_log('user_creado ' .$token);

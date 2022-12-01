@@ -25,7 +25,7 @@ class ProfilesContoller extends Controller
     {
         $url = "";
         if ($request->file('image') && ($request->file('image')->getClientOriginalExtension() == "jpg"
-            || $request->file('image')->getClientOriginalExtension() == "PNG")) {
+            || $request->file('image')->getClientOriginalExtension() == "png")) {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = $request->user_id . "-" . time() . '.' . $extension;
