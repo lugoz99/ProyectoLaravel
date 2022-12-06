@@ -20,6 +20,6 @@ class Rol extends Model
     //Relación n a n
     public function permissions()
     {
-        return $this->belongsToMany(Permission::class);
+        return $this->belongsToMany(Permission::class,PermissionRol::class)->withTimestamps();
     }
 }

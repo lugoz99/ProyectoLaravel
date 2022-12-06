@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\permissionRol;
+use App\Models\Rol as ModelsRol;
+use Rol;
+use Symfony\Component\Console\Input\Input;
 
 class PermissionsRolsController extends Controller
 {
@@ -23,8 +26,14 @@ class PermissionsRolsController extends Controller
     }
     public function store(Request $request)
     {
-        $the_permisionsRols = permissionRol::create($request->all());
-        return response($the_permisionsRols, 201);
+        // $the_permisionsRols = permissionRol::create($request->all());
+        // return response($the_permisionsRols, 201);
+            error_log('.solicitud '.$request->rol_id);
+            $categories = array_values($request->permisos);
+			// $brand = ModelsRol::create(['nombre'=> $request->nombre]);
+            $rols = ModelsRol::find($request->rol_id);
+			$rols->permissions()->attach($categories);
+
     }
 
     public function update(Request $request, $id)

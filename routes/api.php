@@ -55,7 +55,7 @@ Route::controller(PermissionsController::class)->group(function () {
 
 
 Route::controller(RolsController::class)->group(function () {
-    Route::get('rols', 'index')->middleware(['user-access']); //Para obtener todos
+    Route::get('rols', 'index'); //Para obtener todos
     Route::get('rols/{id}', 'show'); //Para consultar especifico
     Route::get('rols/reports/count/{id}', 'count');
     Route::get('rols/reports/count/quantities-by-rol', 'quantitiesByRol');
@@ -73,7 +73,7 @@ Route::controller(ProfilesContoller::class)->group(function () {
 });
 
 Route::controller(UsersController::class)->group(function () {
-    Route::get('Users', 'index');//-> middleware(['user-access']); //Para obtener todos
+    Route::get('Users', 'index'); //Para obtener todos
     Route::get('Users/{id}', 'show'); //Para consultar especifico
     Route::post('Users', 'store'); //Para guardar
     Route::put('Users/{id}', 'update'); //Para actualizar
@@ -162,7 +162,7 @@ Route::controller(RentElementsController::class)->group(function () {
 
 
 Route::controller(UsersController::class)->group(function() {
-    Route::get('users','index')->middleware(['user-access','permission-access']);
+    Route::get('users','index'); //->middleware(['user-access','permission-access']);
     Route::get('users/{id}','show');
     Route::post('users','store');
     Route::put('users/{id}','update');

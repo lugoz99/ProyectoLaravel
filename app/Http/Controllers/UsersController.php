@@ -38,7 +38,6 @@ class UsersController extends Controller
             //error_log('user ' .$user);
             $token = $user->createToken('API Token')->accessToken;
              // Cada que se crea un usuario se le va a generar un Token
-            error_log('user_creado ' .$token);
             return response(['user' => $user, 'token' =>$token]);
         } catch (Exception $e) {
             error_log(' ' . $e->getMessage());

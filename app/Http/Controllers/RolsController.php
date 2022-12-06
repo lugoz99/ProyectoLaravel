@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Models\Rol;
 
@@ -26,6 +27,14 @@ class RolsController extends Controller
     public function store(Request $request)
     {
         $the_role = Rol::create($request->all());
+        // foreach ($lista_permisos as $key => $value) {
+        //     $permission = new Permission();
+        //     $permission -> method = $key;
+        //     $permission -> url -> $key;
+        //     $permission->save();
+        //     $role -> permissions()->atach($permission->id);
+        //     $role-> save();
+        // }
         return response($the_role, 201);
     }
 
