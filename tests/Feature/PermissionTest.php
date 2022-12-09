@@ -29,7 +29,7 @@ class PermissionTest extends TestCase
        public function create_permissionTest()
        {
            $data = [
-            "url" => "rols",
+            "url" => "team",
             "method" =>"DELETE"
             ];
            $response = $this->post('/api/permissions', $data);

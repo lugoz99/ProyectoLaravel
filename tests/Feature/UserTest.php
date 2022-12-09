@@ -48,8 +48,8 @@ class UserTest extends TestCase
         {
 
             $data = [
-                "name" => "tesnnnn",
-                "email"=> "testnnnn@gmail.com",
+                "name" => "tesnnnnn",
+                "email"=> "testnnnnn@gmail.com",
                 "password"=>"123456",
                 "rol_id"=>1
             ];
@@ -104,6 +104,21 @@ class UserTest extends TestCase
         $response = $this->delete('api/users/20');
         $response->assertStatus(404)
         ->assertJson(["message"=>"Not found"]);
+
+    }
+
+
+    public function test_Notshow_data(){
+
+        $data = [
+            "name" => "testincompleto",
+            "email"=> "",
+            "password"=>"",
+            "rol_id"=>1
+        ];
+        $response = $this->post('api/users/20',$data);
+        $response->assertStatus(404)
+        ->assertJson(["data"=>"Data incomplete"]);
 
     }
 }

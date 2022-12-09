@@ -36,8 +36,8 @@ class FieldTest extends TestCase
              "estado" => "activa",
              "descripcion" => "cualquiera",
              "imagen" => "png",
-             "tipoCancha_id" => 3,
-             "ubicacion_id" => 2
+             "tipoCancha_id" => 4,
+             "ubicacion_id" => 1
          ];
          $response = $this->post('/api/fields', $data);
          $response

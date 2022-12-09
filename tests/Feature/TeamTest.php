@@ -30,7 +30,7 @@ class TeamTest extends TestCase
     /** @test */
     public function create_teamTest()
     {
-        $data = ["nombre" => "Sevillaaa"];
+        $data = ["nombre" => "Sevillaaaa"];
         $response = $this->post('/api/team',$data);
         $response
         ->assertStatus(201);
@@ -46,7 +46,6 @@ class TeamTest extends TestCase
             ->assertJson(
                 fn (AssertableJson $json) =>
                 $json->where('nombre', 'Barcelona 2')
-                     ->where('id',3)
                      ->etc()
             );
     }

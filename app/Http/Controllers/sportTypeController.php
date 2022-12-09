@@ -9,7 +9,8 @@ class sportTypeController extends Controller
 {
     public function index()
     {
-        return response()->json(sportType::all(), 200);
+        $the_sport_type = sportType::with('canchas')->get();
+        return response()->json($the_sport_type, 200);
     }
 
     public function show($id)

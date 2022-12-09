@@ -28,7 +28,7 @@ class PlayerTeamTest extends TestCase
     {
         $data = [
             "user_id" => 3,
-            "team_id" => 2,
+            "team_id" => 1 ,
             "numeroCamisa" => "10"
         ];
         $response = $this->post('/api/playerTeams', $data);

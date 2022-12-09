@@ -20,7 +20,7 @@ class ReservationTest extends TestCase
     $data = [
         "fechaReserva"=>Carbon::now(),
         "estado"=> "cualquiera",
-        "team_id" => 2,
+        "team_id" => 1,
         "field_id" => 3,
         "hora_inicio" =>"3pm",
         "hora_fin" => "6pm"
@@ -48,7 +48,7 @@ public function test_showreservation()
 /** @test */
 public function test_reservation_id()
 {
-    $response = $this->get('api/reservation/2');
+    $response = $this->get('api/reservation/3');
     $response->assertStatus(200)
         ->assertJson(
             fn (AssertableJson $json) =>
@@ -61,7 +61,7 @@ public function test_reservation_id()
 public function test_update_reservation()
 {
     $data = [
-        "fechaReserva"=>Carbon::now(),
+        "fechaReserva"=>"10-02-2030",
         "estado"=> "cualquiera",
         "team_id" => 2,
         "field_id" => 3,
@@ -78,7 +78,7 @@ public function test_update_reservation()
 /** @test */
 public function test_delete_reservation()
 {
-    $response = $this->delete('/api/reservation/6');
+    $response = $this->delete('/api/reservation/7');
     $response
         ->assertStatus(204);
 }

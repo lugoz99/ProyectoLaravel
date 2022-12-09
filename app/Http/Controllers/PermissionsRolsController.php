@@ -26,14 +26,10 @@ class PermissionsRolsController extends Controller
     }
     public function store(Request $request)
     {
-        // $the_permisionsRols = permissionRol::create($request->all());
-        // return response($the_permisionsRols, 201);
-            error_log('.solicitud '.$request->rol_id);
-            $categories = array_values($request->permisos);
-			// $brand = ModelsRol::create(['nombre'=> $request->nombre]);
+            $permissions= array_values($request->permisos);
             $rols = ModelsRol::find($request->rol_id);
-			$rols->permissions()->attach($categories);
-
+			$rols->permissions()->attach($permissions);
+            return response()->json(["msg" => "permisos asignados"],201);
     }
 
     public function update(Request $request, $id)

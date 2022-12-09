@@ -18,10 +18,10 @@ class FieldTypeTest extends TestCase
     /** @test */
     public function create_fieldTypes(){
         $data = [
-            "nombre"=>"cualquiera n",
-            "descripcion"=> "cualquiera n",
-            "forma" => "cualquiera n",
-            "superficie" => "cualquiera n"
+            "nombre"=>"cualquiera 1n",
+            "descripcion"=> "cualquiera 1n",
+            "forma" => "cualquiera 1n",
+            "superficie" => "cualquiera 1n"
         ];
 
         $response = $this->post('/api/fieldType',$data);
@@ -77,7 +77,7 @@ class FieldTypeTest extends TestCase
     }
 
      /** @test */
-     public function test_Notshow_fueld_type(){
+     public function test_Notshow_field_type(){
         $response = $this->get('api/fieldType/20');
         $response->assertStatus(404)
         ->assertJson(["message"=>"Not found"]);
