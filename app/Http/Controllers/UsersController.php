@@ -10,7 +10,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return response()->json(User::all(), 200);
+        $the_user = User::with('role')->get();
+        return response()->json($the_user, 200);
     }
 
     public function show($id)

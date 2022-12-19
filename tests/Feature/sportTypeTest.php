@@ -29,8 +29,8 @@ class sportTypeTest extends TestCase
     public function create_sportType()
     {
         $data = [
-            "nombre" => "deporte 9",
-            "descripcion" => "cualquiera",
+            "nombre" => "deporte 10",
+            "descripcion" => "cualquiera 10",
             "cancha_id" => 1,
         ];
         $response = $this->post('/api/sportType', $data);
@@ -57,8 +57,8 @@ class sportTypeTest extends TestCase
    public function test_update_sportType()
    {
        $data = [
-            "nombre" => "deporte cualquiera",
-            "descripcion" => "cualquiera",
+            "nombre" => "final test",
+            "descripcion" => "testfinal",
             "cancha_id" => 1,
 
        ];

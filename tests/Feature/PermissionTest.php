@@ -30,7 +30,7 @@ class PermissionTest extends TestCase
        {
            $data = [
             "url" => "team",
-            "method" =>"DELETE"
+            "method" =>"PUT"
             ];
            $response = $this->post('/api/permissions', $data);
            $response

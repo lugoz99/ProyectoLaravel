@@ -31,7 +31,6 @@ class UserTest extends TestCase
 
 
      /** @test */
-
     public function test_show_id(){
         $response = $this->get('api/users/1');
         $response->assertStatus(200)
@@ -48,8 +47,8 @@ class UserTest extends TestCase
         {
 
             $data = [
-                "name" => "tesnnnnn",
-                "email"=> "testnnnnn@gmail.com",
+                "name" => "tesfinal",
+                "email"=> "testfinal@gmail.com",
                 "password"=>"123456",
                 "rol_id"=>1
             ];

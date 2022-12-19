@@ -18,10 +18,10 @@ class FieldTypeTest extends TestCase
     /** @test */
     public function create_fieldTypes(){
         $data = [
-            "nombre"=>"cualquiera 1n",
-            "descripcion"=> "cualquiera 1n",
-            "forma" => "cualquiera 1n",
-            "superficie" => "cualquiera 1n"
+            "nombre"=>"cualquiera 2n",
+            "descripcion"=> "cualquiera 2n",
+            "forma" => "cualquiera 2n",
+            "superficie" => "cualquiera 2n"
         ];
 
         $response = $this->post('/api/fieldType',$data);

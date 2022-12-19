@@ -13,10 +13,10 @@ class LocationTest extends TestCase
     /** @test */
     public function create_location_test(){
         $data = [
-            "nombre"=>"cualquiera ann",
-            "barrio"=> "cualquiera ann",
-            "direccion" => "cualquiera ann",
-            "telefono" => "cualquiera ann"
+            "nombre"=>"cualquiera X2",
+            "barrio"=> "cualquiera X2",
+            "direccion" => "cualquiera X2",
+            "telefono" => "cualquiera X2"
         ];
 
         $response = $this->post('/api/location',$data);

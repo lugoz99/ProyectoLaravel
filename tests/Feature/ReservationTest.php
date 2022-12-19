@@ -20,8 +20,8 @@ class ReservationTest extends TestCase
     $data = [
         "fechaReserva"=>Carbon::now(),
         "estado"=> "cualquiera",
-        "team_id" => 1,
-        "field_id" => 3,
+        "team_id" => 2,
+        "field_id" => 1,
         "hora_inicio" =>"3pm",
         "hora_fin" => "6pm"
     ];
@@ -61,7 +61,7 @@ public function test_reservation_id()
 public function test_update_reservation()
 {
     $data = [
-        "fechaReserva"=>"10-02-2030",
+        "fechaReserva"=>"2022-12-10 02:10:50",
         "estado"=> "cualquiera",
         "team_id" => 2,
         "field_id" => 3,

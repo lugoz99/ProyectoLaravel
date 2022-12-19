@@ -29,7 +29,7 @@ class RolTest extends TestCase
     /** @test */
     public function create_rolTest()
     {
-        $data = ["nombre" => "Invitado 3"];
+        $data = ["nombre" => "ReInvitado 3"];
         $response = $this->post('/api/rols', $data);
         $response
             ->assertStatus(201);

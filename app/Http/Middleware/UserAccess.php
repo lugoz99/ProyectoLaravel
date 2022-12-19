@@ -17,14 +17,15 @@ class UserAccess
     public function handle(Request $request, Closure $next)
     {
         if(!auth('api')->user()){
-            return response()->json(["msg"=>'you do not have access to this page'],404);
+            return response()->json(['User do not have permission to access for this page.'],401);
         }else{
-            $user = auth('api')->user(); // puede servir para metricas es decir conocer quienes acceden a los edpoints frecuentemte
-            // error_log('User acces >'.$user);
+
+            $user= auth('api')->user();
+            error_log('usuario>'.$user);
+            error_log('id>'.$user->id);
             return $next($request);
 
         }
-
-
     }
 }
+

@@ -35,7 +35,7 @@ class ProfileTest extends TestCase
         $data = [
             "phone_number" => "Super Admin final 2",
             "url_facebook" => "facebook.com",
-            "user_id" => 6,
+            "user_id" => 4,
             "image" => $file
 
         ];

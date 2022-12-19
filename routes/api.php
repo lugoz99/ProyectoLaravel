@@ -38,8 +38,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::controller(PermissionsRolsController::class)->group(function () {
-    Route::get('permissionsRol', 'index'); //Para obtener todos
-    Route::get('permissionsRol/{id}', 'show'); //Para consultar especifico
+    Route::get('permissionsRol', 'index'); //->middleware(['user-access','permission-access']); //Para obtener todos
+    Route::get('permissionsRol/{id}', 'show'); //->middleware(['user-access','permission-access']); //Para consultar especifico
     Route::post('permissionsRol', 'store'); //Para guardar
     Route::put('permissionsRol/{id}', 'update'); //Para actualizar
     Route::delete('permissionsRol/{id}', 'destroy'); //Para eliminar un registro
@@ -72,20 +72,13 @@ Route::controller(ProfilesContoller::class)->group(function () {
     Route::delete('profiles/{id}', 'destroy'); //Para eliminar un registro
 });
 
-Route::controller(UsersController::class)->group(function () {
-    Route::get('Users', 'index'); //Para obtener todos
-    Route::get('Users/{id}', 'show'); //Para consultar especifico
-    Route::post('Users', 'store'); //Para guardar
-    Route::put('Users/{id}', 'update'); //Para actualizar
-    Route::delete('Users/{id}', 'destroy'); //Para eliminar un registro
-});
 
 Route::controller(permissionsRolsController::class)->group(function () {
-    Route::get('PermisionsRols', 'index'); //Para obtener todos
-    Route::get('PermisionsRols/{id}', 'show'); //Para consultar especifico
-    Route::post('PermisionsRols', 'store'); //Para guardar
-    Route::put('PermisionsRols/{id}', 'update'); //Para actualizar
-    Route::delete('PermisionsRols/{id}', 'destroy'); //Para eliminar un registro
+    Route::get('permisionsRols', 'index'); //Para obtener todos
+    Route::get('permisionsRols/{id}', 'show'); //Para consultar especifico
+    Route::post('permisionsRols', 'store'); //Para guardar
+    Route::put('permisionsRols/{id}', 'update'); //Para actualizar
+    Route::delete('permisionsRols/{id}', 'destroy'); //Para eliminar un registro
 });
 
 Route::controller(FieldsController::class)->group(function () {
@@ -121,9 +114,9 @@ Route::controller(TeamsController::class)->group(function () {
 });
 
 Route::controller(ReservationController::class)->group(function () {
-    Route::get('reservation', 'index'); //Para obtener todos
+    Route::get('reservation', 'index'); //->middleware(['user-access','permission-access']); //Para obtener todos
     Route::get('reservation/{id}', 'show'); //Para consultar especifico
-    Route::post('reservation', 'store'); //Para guardar
+    Route::post('reservation', 'store'); //->middleware(['user-access','permission-access']); //Para guardar
     Route::put('reservation/{id}', 'update'); //Para actualizar
     Route::delete('reservation/{id}', 'destroy'); //Para eliminar un registro
 });
@@ -145,7 +138,7 @@ Route::controller(sportTypeController::class)->group(function () {
 });
 
 Route::controller(LocationController::class)->group(function () {
-    Route::get('location', 'index'); //Para obtener todos
+    Route::get('location', 'index'); //->middleware(['user-access','permission-access']); //Para obtener todos
     Route::get('location/{id}', 'show'); //Para consultar especifico
     Route::post('location', 'store'); //Para guardar
     Route::put('location/{id}', 'update'); //Para actualizar
@@ -163,8 +156,8 @@ Route::controller(RentElementsController::class)->group(function () {
 
 Route::controller(UsersController::class)->group(function() {
     Route::get('users','index'); //->middleware(['user-access','permission-access']);
-    Route::get('users/{id}','show');
-    Route::post('users','store');
+    Route::get('users/{id}','show'); //->middleware('permission-access');
+    Route::post('users','store'); //->middleware(['permission-access','user-access']);
     Route::put('users/{id}','update');
     Route::delete('users/{id}','destroy');
 });
@@ -173,3 +166,5 @@ Route::controller(SecurityController::class)->group(function(){
     route::post('login','login');
     route::post('logout','logout');
 });
+
+//vendor/bin/phpunit --coverage-html reports/

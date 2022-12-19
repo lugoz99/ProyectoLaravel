@@ -30,7 +30,7 @@ class TeamTest extends TestCase
     /** @test */
     public function create_teamTest()
     {
-        $data = ["nombre" => "Sevillaaaa"];
+        $data = ["nombre" => "finaltesteam"];
         $response = $this->post('/api/team',$data);
         $response
         ->assertStatus(201);

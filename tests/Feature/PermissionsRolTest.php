@@ -18,7 +18,7 @@ class PermissionsRolTest extends TestCase
     public function create_permisions_rol(){
         $data = [
             "rol_id" => 4,
-            "permisos" => [1,2]
+            "permisos" => [1,3]
         ];
 
         $response = $this->post('/api/PermisionsRols',$data);

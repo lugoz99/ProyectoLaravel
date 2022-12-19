@@ -17,11 +17,11 @@ class RentElementTest extends TestCase
      /** @test */
      public function create_rentElement_test(){
         $data = [
-            "nombre"=>"elemento n",
+            "nombre"=>"elemento testfinal",
             "cantidad"=> 10,
-            "tipo" => "elemento n",
-            "descripcion" => "elemento n",
-            "marca" => "elemento n",
+            "tipo" => "elemento testfinal",
+            "descripcion" => "testfinal",
+            "marca" => "elemento testfinal",
             "reservation_id" => 3
         ];
 
@@ -61,7 +61,7 @@ class RentElementTest extends TestCase
     {
         $data = [
             "nombre"=>"elemento 2",
-            "cantidad"=> 11,
+            "cantidad"=> 12,
             "tipo" => "elemento 2",
             "descripcion" => "elemento 2",
             "marca" => "elemento 2",
@@ -70,7 +70,12 @@ class RentElementTest extends TestCase
         ];
         $response = $this->put('/api/rentElement/2', $data);
         $response
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJson(
+                fn (AssertableJson $json) =>
+                $json->where('id', '2')
+                     ->etc()
+            );
     }
 
 
